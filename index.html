@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Space Odyssey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-image: url("pictures/galaxyBackground.png");
+            display: flex;
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%; 
+            height: 79px;
+        }
+        .header-2nd-section {
+            /* background-image: url("pictures/galaxyBackground.png"); */
+            display: flex;
+            position: fixed;
+            background-color: lightblue;
+            top:79px;
+            left:0;
+            width: 100%; 
+            height: 51;
+        }
+        .header-left-section {
+            align-items: center;
+            margin-left: 4%;
+            margin-right: 38%;
+        }
+        .search-bar-section {
+            background-color: transparent;
+            display: flex;
+        }
+        .search-bar {
+            margin-top: 8%;
+            color: white;
+            background-color: lightgrey;
+            border-color: blue;
+            width: 273px;
+            height: 36px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-bar::placeholder {
+            color: gray;
+        }
+        .search-icon-img{
+            margin-left: -25px;
+            margin-top: 30px;
+        }
+        .right-section {
+            margin-left: 8%;
+            /* width: 40%; */
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            gap: 5%;
+            align-items: center;
+            /* padding: 20px; */
+            width: 250px;
+        }
+        .language-panel {
+            background-color: black;
+            color: white;
+            border: none;
+        }
+        .header2-left-icons {
+            display: flex;
+            justify-content: space-between;
+            margin-left: 5%;
+            gap: 5%
+        }
+        .header2-middle-section {
+            display: flex;
+            margin-left: 8%;
+            width: 500px;
+        }
+        .header2-list {
+            display: flex;
+            justify-content: space-between;
+            gap: 80px;
+            font-size: 16;
+            color: rgba(0, 0, 0, 0.7);
+            list-style-type: none;
+        }
+        .header2-third-section {
+            margin-left: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header2-btn{
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left-section"> 
+            <img src="pictures/logo.png">
+        </div>
+        <div class="search-bar-section">
+            <div>
+                <input type="text" placeholder="Search" class="search-bar">
+            </div>
+            <div class="search-icon-img">
+                <img src="pictures/icons/searchIcon.png">
+            </div>
+        <div class="right-section">
+            <div >
+                <!-- <button> English </button> -->
+                 <!-- <label for="language"></label> -->
+                 <select id="language" class="language-panel">
+                    <option> English </option>
+                    <option> Arab </option>
+                    <option> Spanish </option>
+                    <option> French </option>
+                    </select>
+            </div>
+            <div>
+                <img src="pictures/icons/notifIcon.png" alt="">
+            </div>
+            <div>
+                <img src="pictures/icons/profileIcon.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="header-2nd-section">
+        <div class="header2-left-icons">
+            <img src="pictures/icons/insta.png">
+            <img src="pictures/icons/be.png">
+            <img src="pictures/icons/twitter.png">
+        </div>
+        <div class="header2-middle-section">
+            <ul class="header2-list">
+                <li> HOME </li>
+                <li> PROJECTS </li>
+                <li> MEDIA </li>
+                <li> TECH </li>
+                <li> MEMBERS </li>
+                <li> BLOG </li>
+                <li> ART </li>
+            </ul>
+        </div>
+        <div class="header2-third-section">
+            <div>
+                <button class="header2-btn"> Contact us </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
