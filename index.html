@@ -11,6 +11,7 @@
         }
         .header {
             background-image: url("pictures/galaxyBackground.png");
+            /* background-size: cover; */
             display: flex;
             position: fixed;
             top:0;
@@ -77,12 +78,12 @@
             margin-left: 5%;
             gap: 5%
         }
-        .header2-middle-section {
+        .nav-bar {
             display: flex;
             margin-left: 8%;
             width: 500px;
         }
-        .header2-list {
+        .nav-bar-links {
             display: flex;
             justify-content: space-between;
             gap: 80px;
@@ -107,9 +108,11 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="header-left-section"> 
-            <img src="pictures/logo.png">
+    <header>
+
+        <div class="header">
+            <div class="header-left-section"> 
+                <img src="pictures/logo.png">
         </div>
         <div class="search-bar-section">
             <div>
@@ -121,13 +124,13 @@
         <div class="right-section">
             <div >
                 <!-- <button> English </button> -->
-                 <!-- <label for="language"></label> -->
-                 <select id="language" class="language-panel">
+                <!-- <label for="language"></label> -->
+                <select id="language" class="language-panel">
                     <option> English </option>
                     <option> Arab </option>
                     <option> Spanish </option>
                     <option> French </option>
-                    </select>
+                </select>
             </div>
             <div>
                 <img src="pictures/icons/notifIcon.png" alt="">
@@ -136,29 +139,30 @@
                 <img src="pictures/icons/profileIcon.png" alt="">
             </div>
         </div>
-    </div>
-    <div class="header-2nd-section">
-        <div class="header2-left-icons">
-            <img src="pictures/icons/insta.png">
-            <img src="pictures/icons/be.png">
-            <img src="pictures/icons/twitter.png">
         </div>
-        <div class="header2-middle-section">
-            <ul class="header2-list">
-                <li> HOME </li>
-                <li> PROJECTS </li>
-                <li> MEDIA </li>
-                <li> TECH </li>
-                <li> MEMBERS </li>
-                <li> BLOG </li>
-                <li> ART </li>
-            </ul>
-        </div>
-        <div class="header2-third-section">
-            <div>
-                <button class="header2-btn"> Contact us </button>
+        <div class="header-2nd-section">
+            <div class="header2-left-icons">
+                <img src="pictures/icons/insta.png">
+                <img src="pictures/icons/be.png">
+                <img src="pictures/icons/twitter.png">
+            </div>
+            <nav class="nav-bar">
+                <ul class="nav-bar-links">
+                    <li> HOME </li>
+                    <li> PROJECTS </li>
+                    <li> MEDIA </li>
+                    <li> TECH </li>
+                    <li> MEMBERS </li>
+                    <li> BLOG </li>
+                    <li> ART </li>
+                </ul>
+            </nav>
+            <div class="header2-third-section">
+                <div>
+                    <button class="header2-btn"> Contact us </button>
+                </div>
             </div>
         </div>
-    </div>
+    </header>
 </body>
 </html>
