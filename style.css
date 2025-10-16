@@ -107,14 +107,23 @@ footer {
     width: 100%;
 }
 
-.footer-div {
-    margin: 20px 40px;
-    display: flex;
+.footer-div{
     background-color: black;
+    margin: 20px 40px;
+}
+.footer-first-section {
+    display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
+hr {
+    margin-left: 36px;
+    margin-right: 36px;
+    border-width: 1px;
+    border-color: white;
+    opacity: 0.6;
+}
 .footer-list li {
     color: white;
     font-family: 'Abhaya Libre SemiBold';
@@ -166,4 +175,44 @@ footer {
     font-weight: 400;
     font-size: 14px;
     font-family: 'Abhaya Libre SemiBold';
+}
+
+.footer-second-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.footer2-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.footer2-list li{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Abhaya Libre SemiBold';
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:14px
+}
+
+.twitter-icon{
+    width: 35px;
+    border-radius: 20px;
+}
+.fb-icon{
+    width: 35px;
+    border-radius: 20px;
+}
+.linkedin-icon {
+    width: 35px;
+    border-radius: 20px;
 }
