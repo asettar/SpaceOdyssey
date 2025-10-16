@@ -320,3 +320,71 @@ main {
     font-size: 10px;
     font-family: 'Plus Jakarta Sans', Arial;
 }
+
+.home2-middle {
+    margin-left: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap : 100px
+}
+
+.home2-middle-text {
+    /* /* margin-left: 40px; */
+    /* width: 674px; */
+    /* height: 140px; */
+    flex-shrink: 0;
+    display: flex;
+    align-content: flex-start;
+}
+
+.time-txt {
+    line-height: 33px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: 'Castoro', Arial;
+    color: black
+}
+
+.time-ctrl {
+    width: 414px;
+    height: 130px;
+    flex-shrink: 0;
+    background-color: black;  
+    border-radius: 20px;
+    margin-right: 60px; 
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* flex  */
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.clk-txt-size {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Plus Jakarta Sans', Arial;
+    color: white
+}
+
+.clk {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap : 15px
+}
+
+.time-ctrl p {
+    color: white;
+    font-size: 20px;
+    font-family: 'Plus Jakarta Sans', Arial;
+    font-weight: 800;
+    margin: 0 100px;
+    margin-top: -15px;
+}
+.clock-img {
+    width: 45px; 
+    width: 40px;
+    height: 40px;
+    border-radius : 8px   
+}
