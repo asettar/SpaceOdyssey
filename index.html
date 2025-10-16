@@ -4,112 +4,15 @@
     <meta charset="UTF-8">
     <title>Space Odyssey</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+        <!-- In your HTML <head> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background-image: url("pictures/galaxyBackground.png");
-            /* background-size: cover; */
-            display: flex;
-            position: fixed;
-            top:0;
-            left:0;
-            width: 100%; 
-            height: 79px;
-        }
-        .header-2nd-section {
-            /* background-image: url("pictures/galaxyBackground.png"); */
-            display: flex;
-            position: fixed;
-            background-color: lightblue;
-            top:79px;
-            left:0;
-            width: 100%; 
-            height: 51;
-        }
-        .header-left-section {
-            align-items: center;
-            margin-left: 4%;
-            margin-right: 38%;
-        }
-        .search-bar-section {
-            background-color: transparent;
-            display: flex;
-        }
-        .search-bar {
-            margin-top: 8%;
-            color: white;
-            background-color: lightgrey;
-            border-color: blue;
-            width: 273px;
-            height: 36px;
-            border: none;
-            border-radius: 5px;
-        }
-
-        .search-bar::placeholder {
-            color: gray;
-        }
-        .search-icon-img{
-            margin-left: -25px;
-            margin-top: 30px;
-        }
-        .right-section {
-            margin-left: 8%;
-            /* width: 40%; */
-            display: flex;
-            justify-content: space-between;
-            background-color: black;
-            gap: 5%;
-            align-items: center;
-            /* padding: 20px; */
-            width: 250px;
-        }
-        .language-panel {
-            background-color: black;
-            color: white;
-            border: none;
-        }
-        .header2-left-icons {
-            display: flex;
-            justify-content: space-between;
-            margin-left: 5%;
-            gap: 5%
-        }
-        .nav-bar {
-            display: flex;
-            margin-left: 8%;
-            width: 500px;
-        }
-        .nav-bar-links {
-            display: flex;
-            justify-content: space-between;
-            gap: 80px;
-            font-size: 16;
-            color: rgba(0, 0, 0, 0.7);
-            list-style-type: none;
-        }
-        .header2-third-section {
-            margin-left: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .header2-btn{
-            background-color: black;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
+    <!-- header -->
     <header>
-
         <div class="header">
             <div class="header-left-section"> 
                 <img src="pictures/logo.png">
@@ -164,5 +67,47 @@
             </div>
         </div>
     </header>
+    
+
+
+
+
+
+
+    <!-- footer  -->
+    <footer>
+      <div class = "footer-div">
+        <div class = "footer-section">
+          <ul class = "footer-list">
+            <h4 class = "legal"> Legal </h4>
+            <li> Terms of Service </li>
+            <li> Privacy policy </li>
+            <li> Cookies </li>
+          </ul>
+        </div>
+        <div class = "footer-section">
+          <ul class = "footer-list">
+            <h4 class = "footer-list-title"> Information </h4>
+            <li> FAQ </li>
+            <li> Blog </li>
+            <li> Support </li>
+          </ul>
+        </div>
+        <div class = "footer-section">
+          <ul class = "footer-list">
+            <h4 class = "footer-list-title"> Company </h4>
+            <li> About us  </li>
+            <li> Careers </li>
+            <li> Contact us </li>
+          </ul>
+        </div>
+        <div class = "footer-right-section">
+            <button class = "Subscribe-btn">Subscribe</button>
+            <div>
+              <input type = "email" value = "Email adress" class = "email-input">
+            </div>
+          </div>
+      </div>
+    </footer>
 </body>
 </html>
