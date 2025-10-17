@@ -561,3 +561,37 @@ section {
     font-size: 14px;
     line-height: 24px;
 }
+
+.community {
+    margin : 50px;
+    display : grid;
+    grid-template-columns: 65px 1fr;
+    align-items: center;
+    border : 2px solid red 
+}
+
+.community img {
+    width: 50px;
+    /* border : 2px solid red; */
+}
+.community h3 {
+    font-weight: 700;
+    font-size: 36px;
+    font-family: 'Plus Jakarta Sans', Arial;
+}
+
+.community-pics {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 50px;
+    margin-top: -40px;
+    border : 2px solid red 
+}
+
+.community-pics h5 {
+    margin-top: 10px;
+    margin-left: 25%;
+    font-weight: 500;
+    font-size: 25px;
+}
