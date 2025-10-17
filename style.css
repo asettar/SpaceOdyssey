@@ -644,3 +644,58 @@ section {
     line-height: 15px;
     margin-left : 5%;
 }
+
+.astro-com{
+    margin-top: 10px;
+    border: 2px solid red;
+    background-image: url("pictures/galaxyBackground.png");
+    display : grid;
+    grid-template-columns: 40% 20% 40%;
+    color : white;
+}
+
+.ast-txt {
+    border: 2px solid red;
+}
+
+.ast-txt h4 {
+    margin-left: 10%;
+    font-family: 'Poly', Arial;
+    font-size: 35px;
+    font-weight: 500;
+}
+.ast-txt p {
+    font-family: 'Poly', Arial;
+    font-size: 16px;
+    line-height: 20px;
+    margin-left: 10%;
+    margin-top: -20px;
+}
+
+
+.ast-middle img {
+    height: 255px;
+    border-radius: 135px;
+    margin-top: 4%;
+    margin-left: 10%;
+    opacity: 0.7;
+}
+.ast-right {
+    font-family: 'Poppins';
+    border: 2px solid red;
+    display : grid;
+    grid-template-columns: 1fr 1fr; 
+}
+
+.ast-sec div h5 {
+    font-size: 16px;
+    margin-top: 10%;
+}
+
+.ast-sec div p {
+    font-size: 36px;
+    font-weight: 500;
+    margin-top: -5%;
+    margin-left: 5%
+}
+
