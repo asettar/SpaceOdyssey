@@ -367,6 +367,10 @@ main {
     color: white
 }
 
+section {
+    margin-bottom: 20px
+}
+
 .clk {
     display: flex;
     align-items: center;
@@ -387,4 +391,69 @@ main {
     width: 40px;
     height: 40px;
     border-radius : 8px   
+}
+
+.nasa {
+    /* background-position: cover; */
+    display: flex;
+    align-items: center;
+    border: 2px solid red;
+    margin: 0 50px;
+    border-radius: 37px;
+    /* box-shadow: */
+    /* 0px 4px 6.3px rgba(0, 0, 0, 0.52) */
+    /* -15px 0px 7px rgba(0, 0, 0, 0.42) */
+    /* 15px 0px 7px rgba(0, 0, 0, 0.42); */
+    
+    background-color: black;
+    overflow: hidden
+}
+
+
+.nasa-block {
+    border: 2px solid red;
+    background-color: gray; 
+    border-radius: 33px;
+    position : relative;
+    margin-left: 16%;
+    width: 483px;
+    height: 377px;
+}
+
+.astro-title{
+    color : white;
+    font-family: 'Inter', Arial;
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: 10%  
+}
+
+.astro-txt {
+    color : white;
+    font-family: 'Castoro', Arial;
+    font-weight: 400;
+    font-size: 16px;
+    margin-left: 10%;
+    line-height: 25px
+    /* margin: 30px 40px; */
+}
+
+.astro-btn {
+    position: absolute;
+    border-radius: 20px;
+    background-color: white;
+    color : black;
+    border: none;
+    right : 20px;
+    bottom : 20px;
+    padding : 20px;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Plus Jakarta Sans', Arial
+}
+
+.lunar {
+    display : flex;
+    border: 2px solid red;
+    margin : 40px;
 }
