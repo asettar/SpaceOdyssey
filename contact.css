@@ -10,7 +10,7 @@
 .contact-det {
     background-image: url("pictures/galaxyBackground.png");
     border: 2px solid red;
-    height: 550px;
+    /* height: 550px; */
     color: white;
 }
 
@@ -75,4 +75,80 @@
 }
 .contact-icons img {
     width: 40px;
+}
+
+
+.form1 {
+    margin-top: 5%;
+    margin-left: 4%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 120px;
+}
+
+.form1 div {
+    height: 100px;
+    border: 2px solid red ;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.form1 label {
+    font-family: 'Poppins', Arial;
+    font-size: 16px;
+    font-weight: 500;
+}
+.form1 input {
+    margin-top: 10px;
+    border : none;
+    border-bottom: 2px solid gray;
+    width: 85%;
+    height: 25px;
+}
+
+.form2 {
+    border: 2px solid green;
+    margin-top: 18%;
+    margin-left: 4%;
+}
+
+
+.form2 p,
+.form-msg p
+{
+    font-family: 'Poppins', Arial;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-radio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-msg {
+    border: 2px solid red;
+    margin-left: 4%;
+    margin-top: 5%;
+}
+
+textarea {
+    border: none;
+    border-bottom: 2px solid gray;
+    width: 95%;
+}
+
+.form-btn {
+    background-color: black;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500; 
+    font-family: 'Poppins', Arial;
+    margin-left: 74%;
+    margin-top: 3%;
 }
