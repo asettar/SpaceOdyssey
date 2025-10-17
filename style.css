@@ -453,7 +453,62 @@ section {
 }
 
 .lunar {
-    display : flex;
+    display : grid;
     border: 2px solid red;
-    margin : 40px;
+    margin : 50px;
+    grid-template-columns: 1fr 1fr;
+    gap : 20px;
+}
+
+.lunar-header {
+    font-weight: 400;
+    font-family: 'Carmorant', Arial;
+    font-size: 48px;
+} 
+
+.lunar-header2 {
+    font-weight: 500;
+    font-family: 'Carmorant', Arial;
+    font-size: 36px;
+    text-decoration: underline; 
+    margin-bottom : 90px;
+}
+
+.lunar-txt {
+    margin-left: 20px;
+    margin-right: 80px;
+    line-height: 20px;
+}
+
+.lunar-arrow {
+    display : flex;
+    align-items: center;
+    margin-left : 200px; 
+    gap : 20px;
+}
+
+.lunar-btn {
+    margin-top : 35px;
+    margin-left : 20px;
+    padding : 10px 15px;
+    border : 1px solid black;
+    border-radius: 15px;
+    background-color: white;
+    color : black;
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Plus Jakarta Sans', Arial;
+}
+
+.lunar-img-btn {
+    padding : 10px;
+    border: none;
+    background-color: white;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Castoro', Arial;
+}
+
+.right-arrow {
+    width: 30px;
 }
