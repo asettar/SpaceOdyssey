@@ -17,12 +17,13 @@ body {
     left:0;
     width: 100%; 
     height: 79px;
+    z-index: 100;
 }
 .header-2nd-section {
     /* background-image: url("pictures/galaxyBackground.png"); */
     display: flex;
     position: fixed;
-    background-color: lightblue;
+    background-color: white;
     top:80px;
     left:0;
     width: 100%; 
@@ -103,6 +104,18 @@ body {
     border-radius: 5px;
     padding: 10px 15px;
     font-size: 16px;
+}
+
+.header2-btn a {
+    text-decoration: none;
+    color : inherit;
+}
+
+.header2-btn:hover{
+    background-color: #1e90ff;
+    border: 2px solid black;
+    color: black;
+    transition : background-color 0.2s ease
 }
 
 footer {
