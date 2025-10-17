@@ -595,3 +595,52 @@ section {
     font-weight: 500;
     font-size: 25px;
 }
+
+.grow-container {
+    border : 2px solid red; 
+    margin : 0px 120px;
+    margin-top : -30px;
+} 
+
+.grow-container h4 {
+    margin-top: 20px;
+    margin-left : 42%;
+    font-family: 'Libre Caslon Text';
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.grow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    gap: 10%
+}
+
+.grow div {
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border : 2px solid red; 
+    margin-top: -30px;
+}
+
+.grow div img {
+    width: 42px;
+    margin-bottom: -30px;
+}
+.grow div h6 {
+    font-weight: 500;
+    font-size: 16px;
+    font-family: 'Castoro', Arial;
+    color: black;
+    margin-bottom: 20px;
+}
+.grow div p {
+    font-weight: 400;
+    font-size: 12px;
+    font-family: 'Poly', Arial;
+    color: black;
+    line-height: 15px;
+    margin-left : 5%;
+}
