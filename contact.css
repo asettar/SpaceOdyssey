@@ -1,0 +1,78 @@
+.contact {
+    margin: 10%;
+    margin-top: 13%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    border: 2px solid red;
+}
+
+
+.contact-det {
+    background-image: url("pictures/galaxyBackground.png");
+    border: 2px solid red;
+    height: 550px;
+    color: white;
+}
+
+.contact-det img {
+    width: 45%;
+    margin-left: 50%;
+    margin-top: 10%;
+}
+
+.contact-det h2 {
+    font-weight: 600;
+    font-size: 36px;
+    font-family: 'Poppins', Arial;
+    margin-top: -50%;
+    margin-left: 10%;
+}
+.contact-det p {
+    font-size: 18px;
+    font-family: 'Poppins', Arial;
+    /* margin-top: -50%; */
+    color: #C9C9C9;
+    margin-left: 10%;
+}
+
+.phone-mail  {
+    border: 2px solid red;
+    color : white;
+    margin-top: 20%;
+    margin: 10%;
+}
+
+.phone-mail div {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap : 2px
+}
+.phone-mail div img {
+    margin-left: 5%;
+    width: 20px;
+    margin-top: 5px;   
+    border: 2px solid red;
+    /* margin-bottom: 10px; */
+}
+
+.phone-mail div p{
+    color: white;
+    font-weight: 16px;
+    font-family: 'Poppins', Arial;
+}
+
+.contact-icons {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap : 5%;
+    border: 2px solid red;
+    margin-top: 24%;
+    margin-left: 5%;
+
+}
+.contact-icons img {
+    width: 40px;
+}
