@@ -80,14 +80,25 @@ body {
     margin-left: 8%;
     width: 500px;
 }
-.nav-bar-links {
+.nav-bar-links,
+.nav-bar-links li a{
     display: flex;
     justify-content: space-between;
     gap: 80px;
     font-size: 16;
     color: rgba(0, 0, 0, 0.7);
     list-style-type: none;
+    text-decoration: none;
 }
+
+.nav-bar-links li a:hover{
+    font-size: 16px;
+    color: white;
+    background-color: black; 
+    border-radius: 2px;
+    transition: background-color 0.15s;
+}
+
 .header2-third-section {
     margin-left: 30%;
     display: flex;
