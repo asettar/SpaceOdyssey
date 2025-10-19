@@ -587,7 +587,7 @@ section {
     border : 2px solid red 
 }
 
-.community img {
+#header-icon {
     width: 50px;
     /* border : 2px solid red; */
 }
