@@ -153,9 +153,10 @@
             <div class = "form-msg">
               <p>Message </p>
               <label style="display: block;">write your Message</label>
-              <textarea name="" id="message" required></textarea>
+              <textarea name="" id="message" required onkeydown="checkMessage(event, id)"></textarea>
+              <p class = "msg-errormsg"></p>
             </div>
-            <button class = "form-btn" type="submit" required><a href="contactSuccess.html" value="">Send Message</a></input>
+            <button class = "form-btn" type="submit" required onclick="validateForm(event)">Send Message</input>
           </form>
         </div>
       </section>
@@ -182,6 +183,14 @@
           <a href=""> +94112224556 </a>
         </div>
       </section>
+
+      <section class="success-msg">
+        <div>
+            Massage send successfully 
+        </div>
+        <a href="index.html">Done</a>
+      </section>
+    
     </main>
     <!-- footer  -->
     <footer>
@@ -246,7 +255,7 @@
         <section>
       </div>
     </footer>
-
+    
     <script src = "formValidate.js"></script>
   </body>
 </html>
