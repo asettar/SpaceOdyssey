@@ -3,6 +3,7 @@ function checkFeild(event, inputId) {
     if (event.key !== 'Enter' && event.key !== 'Tab') return;
     if (inputId === 'firstname' || inputId == 'secondname') checkName(event, inputId);
     else if (inputId == 'mail') checkMail(event, inputId);
+    else checkPhoneNumber(event, inputId)
 }
 
 
@@ -36,7 +37,7 @@ function    checkName(event, inputId) {
 
 
 function isValidMail(mail) {
-    if (mail.length <= 8) return [false, "mail lenght should be > 8,"]
+    if (mail.length <= 8) return [false, "mail lenght should be > 8"]
     const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isValid = pattern.test(mail);
     if (isValid) return [true];
@@ -58,6 +59,35 @@ function checkMail(event, inputId) {
     else {
         p.innerHTML = "";
         mailInputElement.style["border-color"] = 'green';
+    }
+}
+
+function    isValidPhoneNumber(phonenum) {
+    if (phonenum.length <= 8) return [false, "phone number lenght should be > 9."]
+    let i = 0;
+    if (phonenum[i] === '+') i++;
+    while (i < phonenum.length) {
+        if (isNaN(parseInt(phonenum[i]))) return [false, "phone number should contain only digits"]
+        i++;
+    }
+    return [true];
+}
+
+function checkPhoneNumber(event, inputId) {
+    const phonenumInputElement = document.getElementById(inputId); 
+    console.log(phonenumInputElement);
+    const p = document.querySelector('.phonenum-errormsg');
+    let val = isValidPhoneNumber(phonenumInputElement.value);
+    // console.log(val);
+    if (val[0] == false) {
+        console.log("phonenum Invalid::");
+        p.innerHTML = val[1];
+        phonenumInputElement.style["border-color"] = 'red'; 
+        event.preventDefault();
+    }
+    else {
+        p.innerHTML = "";
+        phonenumInputElement.style["border-color"] = 'green';
     }
 }
 

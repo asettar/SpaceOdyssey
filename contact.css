@@ -252,10 +252,10 @@ textarea {
     height: 50px;
 }
 
-input[type="text"]:focus {
+input:focus {
     outline: none;
 }
- /* input:invalid, input:valid { */
-    /* border : none; */
-    /* border-color: yellow; */
- /* } */
+textarea:focus {
+    outline: none;
+    border-color:  green !important;
+}

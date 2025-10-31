@@ -98,7 +98,7 @@
               </div>
             </div>
           </div>
-          <form action="">
+          <form action = "">
             <div class = "form1">
               <div>
                 <label for = "firstname"> First name </label>
@@ -117,7 +117,7 @@
               </div>
               <div>
                 <label for="phonenum"> phone number </label required>
-                <input type = "text" id = "phonenum" value = "">
+                <input type = "text" id = "phonenum" value = "" required onkeydown="checkFeild(event, id)">
                 <p class = "phonenum-errormsg"></p>
               </div>
             </div>
@@ -127,7 +127,7 @@
               <div class="form-radio">
                 <!-- <div> -->
                   <label>
-                    <input type="radio" name = "radio">
+                    <input type="radio" name = "radio" required>
                     General inquiry
                   </label>
                 <!-- </div> -->
@@ -153,9 +153,9 @@
             <div class = "form-msg">
               <p>Message </p>
               <label style="display: block;">write your Message</label>
-              <textarea name="" id=""></textarea>
+              <textarea name="" id="message" required></textarea>
             </div>
-            <button class = "form-btn"><a href="contactSuccess.html">Send Message</a></button>
+            <button class = "form-btn" type="submit" required><a href="contactSuccess.html" value="">Send Message</a></input>
           </form>
         </div>
       </section>
