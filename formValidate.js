@@ -29,6 +29,7 @@ function    checkName(event, inputId) {
         p.innerHTML = val[1];
         inputElement.style["border-color"] = 'red'; 
         event.preventDefault();
+		inputElement.focus();
         return false;
     }
     else {
@@ -57,6 +58,7 @@ function checkMail(event, inputId) {
         p.innerHTML = val[1];
         mailInputElement.style["border-color"] = 'red'; 
         event.preventDefault();
+		mailInputElement.focus();
         return false;
     }
     else {
@@ -88,10 +90,12 @@ function checkPhoneNumber(event, inputId) {
         p.innerHTML = val[1];
         phonenumInputElement.style["border-color"] = 'red'; 
         event.preventDefault();
+		phonenumInputElement.focus();
         return false;
     }
     else {
         phonenumInputElement.style["border-color"] = 'green';
+        p.innerHTML = "";
         return true;
     }
 }
@@ -116,20 +120,40 @@ function checkMessage(event, inputId) {
     }
 }
 
-// function   validateForm(event) { 
-//     console.log("submit clicked");
-//     event.preventDefault();
-//     if (!checkName(event, "firstname") || !checkName(event, "secondname") 
-// 	   || !checkMail(event, "mail")  || !checkPhoneNumber(event, "phonenum")
-// 	   || !checkMessage()
-// 	)
-//         return;
-    // const success = document.querySelector('.success-msg');        
-    // success.style.display = 'block';
-// }
+function checkRadio() {
+	const radioElement = document.querySelector('input[name="radio"]:checked');
+	const p = document.querySelector(".radio-error");
+	if (!radioElement) {
+		console.log("radio not selected");
+		p.innerHTML = "please select on of the options above.";
+		return false;
+	}
+	
+	else {
+		p.innerHTML = "";
+		return true;
+	}
+}
+
+
+function   validateForm(event) { 
+    console.log("submit clicked");
+    event.preventDefault();
+    if (!checkName(event, "firstname") || !checkName(event, "secondname") 
+	   || !checkMail(event, "mail")  || !checkPhoneNumber(event, "phonenum")
+	   || !checkMessage(event, "message") || !checkRadio())
+	   return;
+
+    const success = document.querySelector('.success-msg');
+	const form = document.querySelector('.form-section');  
+	console.log(success);
+	console.log(success.style.display);     
+	console.log(form);
+    success.style.display = 'block';
+	form.style.display = 'none';
+}
 
 function    isFormValid() {
     checkFirstName();
 }
 
-console.log("Hello world");
