@@ -102,47 +102,51 @@
             <div class = "form1">
               <div>
                 <label for = "firstname"> First name </label>
-                <input type = "text" id = "firstname" value = "">
+                <input type = "text" id = "firstname" value = "" required onkeydown="checkFeild(event, id)">
+                <p class = "firstname-errormsg"></p>
               </div>
               <div>
                 <label for = "secondname"> Last name </label>
-                <input type = "text" id = "secondname" value = "">
+                <input type = "text" id = "secondname" value = "" required onkeydown="checkFeild(event, id)">
+                <p class = "secondname-errormsg"></p>
               </div>
               <div>
                 <label for = "mail"> Email </label>
-                <input type = "email" id = "mail" value = "">
+                <input type = "email" id = "mail" value = "" required onkeydown="checkFeild(event, id)">
+                <p class = "mail-errormsg"></p>
               </div>
               <div>
-                <label for="phonenum"> phone number </label>
+                <label for="phonenum"> phone number </label required>
                 <input type = "text" id = "phonenum" value = "">
+                <p class = "phonenum-errormsg"></p>
               </div>
             </div>
             <!-- subject -->
             <div class = "form2">
               <p>Select subject? </p>
               <div class="form-radio">
-                <div>
+                <!-- <div> -->
                   <label>
-                    <input type="radio">
+                    <input type="radio" name = "radio">
                     General inquiry
                   </label>
-                </div>
-                <div>
+                <!-- </div> -->
+                <!-- <div> -->
                   <label>
-                    <input type="radio">
-                    General inquiry
+                    <input type="radio" name = "radio">
+                    Pov
                   </label>
-                </div>
+                <!-- </div> -->
                   <label>
-                    <input type="radio">
-                    General inquiry
+                    <input type="radio" name = "radio">
+                    Review
                   </label>
-                <div>
+                <!-- <div> -->
                   <label>
-                    <input type="radio">
-                    General inquiry
+                    <input type="radio" name = "radio">
+                    Other
                   </label>
-                </div>
+                <!-- </div> -->
               </div>
             </div>
             <!-- msg  -->
@@ -242,5 +246,7 @@
         <section>
       </div>
     </footer>
+
+    <script src = "formValidate.js"></script>
   </body>
 </html>
