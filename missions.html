@@ -70,69 +70,99 @@
 
     <!-- main  -->
     <main>
-        <div class = "missions-title">
-            <img src="pictures/icons/headerIcon.png" alt="" id = "header-icon">
-            <h2> Missions </h2>
-        </div>
+      
+      <section class = "missions-section">
+          <div class = "missions-title">
+              <img src="pictures/icons/headerIcon.png" alt="" id = "header-icon">
+              <h2> Missions </h2>
+          </div>
+    
+          <div class = "missions-grid">
+            <div class="mission">
+              <div class="mission-card">
+                <img src="pictures/apollo11.png" alt="">
+                <p><b>Apollo 11</b>, launched by NASA  on July 16, 1969, aimed to land the first humans on the Moon and return them safely to Earth.</p>
+              </div>
+              <div class = "add-del-fav"> 
+                <img src="pictures/fav-empty.png" alt="" onclick="checkFavorites()">
+                <img src="pictures/delete-icon (1).png" alt="">
+                <img src="pictures/edit-icon.png" alt="">
+              </div>
+            </div>
+            <div class="mission">
+              <div class="mission-card">
+                <img src="pictures/curiosity.png" alt="">
+                <p><b>Curiosity</b>, launched by NASA on November 26, 2011,
+                  explores Mars to study its climate, geology, and habitability.</p>
+              </div>
+              <div class = "add-del-fav"> 
+                <img src="pictures/fav-empty.png" alt="">
+                <img src="pictures/delete-icon (1).png" alt="">
+                <img src="pictures/edit-icon.png" alt="">
+              </div>
+            </div>
+            <div class="mission">
+              <div class="mission-card">
+                <img src="pictures/artemis1.png" alt="">
+                <p><b>Artemis I</b>, launched by NASA on November 16, 2022, 
+                  tested the Orion spacecraft for future crewed Moon missions.</p>
+              </div>
+              <div class = "add-del-fav"> 
+                <img src="pictures/fav-empty.png" alt="">
+                <img src="pictures/delete-icon (1).png" alt="">
+                <img src="pictures/edit-icon.png" alt="">
+              </div>
+            </div>
+          </div>
+          <!--<div class="mission">
+              <img src="pictures/mission4.png" alt="">
+              <p><b>The James Webb Telescope.</b>, launched by NASA,
+    ESA, and CSA on December 25, 2021, 
+    observes distant galaxies and exoplanets.</p>
+          </div>
+          <div class="mission">
+              <img src="pictures/mission5.png" alt="">
+              <p><b>Voyager 1</b>, launched by NASA on
+    September 5, 1977, explored the outer planets
+    and became the first probe in interstellar space.</p>
+          </div>
+          <div class="mission">
+              <img src="pictures/mission6.png" alt="">
+              <p><b>Hubble</b>, launched by NASA and ESA 
+    on April 24, 1990, captures high-resolution 
+    images of the universe from Earth’s orbit.</p>
+          </div>
+          <div class="mission">
+              <img src="pictures/mission7.png" alt="">
+              <p><b>Tianwen-1</b>, launched by CNSA 
+    on July 23, 2020, explored Mars 
+    with an orbiter, lander, and rover.</p>
+          </div>
+          <div class="mission">
+              <img src="pictures/mission8.png" alt="">
+              <p><b>Mars Pathfinder</b>, launched by NASA 
+    on December 4, 1996, demonstrated new 
+    landing technology and explored the Martian surface</p>
+          </div>
+          <div class="mission">
+              <img src="pictures/mission9.png" alt="">
+              <p><b>Cassini–Huygens</b>, launched by NASA, ESA, 
+    and ASI on October 15, 1997, 
+    studied Saturn, its rings, and moons.</p>
+          </div>
+          <div class="mission">
+              <img src="pictures/mission10.png" alt="">
+              <p><b>Sputnik 1</b>, launched by the USSR
+    on October 4, 1957, was the first artificial 
+    satellite to orbit Earth.</p>
+          </div> -->
 
-        <div class="mission">
-            <img src="pictures/mission1.png" alt="">
-            <p><b>Apollo 11</b>, launched by NASA  on July 16, 1969, aimed to land the first humans on the Moon and return them safely to Earth.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission2.png" alt="">
-            <p><b>Curiosity</b>, launched by NASA on November 26, 2011,
-explores Mars to study its climate, geology, and habitability.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission3.png" alt="">
-            <p><b>Artemis I</b>, launched by NASA on November 16, 2022, 
-tested the Orion spacecraft for future crewed Moon missions.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission4.png" alt="">
-            <p><b>The James Webb Telescope.</b>, launched by NASA,
- ESA, and CSA on December 25, 2021, 
-observes distant galaxies and exoplanets.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission5.png" alt="">
-            <p><b>Voyager 1</b>, launched by NASA on
-September 5, 1977, explored the outer planets
- and became the first probe in interstellar space.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission6.png" alt="">
-            <p><b>Hubble</b>, launched by NASA and ESA 
-on April 24, 1990, captures high-resolution 
-images of the universe from Earth’s orbit.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission7.png" alt="">
-            <p><b>Tianwen-1</b>, launched by CNSA 
-on July 23, 2020, explored Mars 
-with an orbiter, lander, and rover.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission8.png" alt="">
-            <p><b>Mars Pathfinder</b>, launched by NASA 
-on December 4, 1996, demonstrated new 
-landing technology and explored the Martian surface</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission9.png" alt="">
-            <p><b>Cassini–Huygens</b>, launched by NASA, ESA, 
-and ASI on October 15, 1997, 
-studied Saturn, its rings, and moons.</p>
-        </div>
-        <div class="mission">
-            <img src="pictures/mission10.png" alt="">
-            <p><b>Sputnik 1</b>, launched by the USSR
-on October 4, 1957, was the first artificial 
-satellite to orbit Earth.</p>
-        </div>
+        </section>
     </main>
     
+    
+    
+    <script src = "scripts/missions.js"></script>
     <!-- footer  -->
     <footer>
       <div class="footer-div">
