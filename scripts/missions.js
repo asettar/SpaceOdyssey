@@ -96,19 +96,36 @@ function    createNewMission(mission) {
     </div>
     <div class = "add-del-fav"> 
         <img src="pictures/fav-empty.png" alt="" id = "fav-icon${mission.id}" onclick="toggleFavoriteIcon(${mission.id})">
-        <img src="pictures/delete-icon (1).png" alt="">
+        <img src="pictures/delete-icon (1).png" alt="" id = "del-icon${mission.id}">
         <img src="pictures/edit-icon.png" alt="">
     </div>
     `
-
-    console.log("from creation");
-    console.log(newMissionElement);
-    console.log(mission);
-    console.log(newMissionElement.innerHTML);
     missionGrid.appendChild(newMissionElement);
+
+    let deleteBtn = document.getElementById(`del-icon${mission.id}`);
+    deleteBtn.addEventListener('click', () => {
+        deleteMission(mission, newMissionElement);
+    });
 }
 
 
+
+function    deleteMission(missionData, missionElement) {
+    console.log("Hello from delete");
+    // console.log(missionElement, missionElement.innerHTML);
+    const deletePopUp = document.querySelector('.delete-popup');
+    let confirmBtn = document.getElementById('delete-confirm');
+    let cancelBtn = document.getElementById('delete-cancel');
+    console.log(cancelBtn);
+    deletePopUp.style.display = 'flex';
+    confirmBtn.addEventListener('click', () => {
+        missionElement.remove();
+        deletePopUp.style.display = 'none';
+    });
+    cancelBtn.addEventListener('click', () => {
+        deletePopUp.style.display = 'none';
+    });
+}
 
 function toggleFavoriteIcon(missionId) {
     let favIcon = document.getElementById(`fav-icon${missionId}`);
@@ -127,5 +144,4 @@ for (let mission of missionsData) {
     console.log(typeof(mission), mission);
     createNewMission(mission);
 }
-
 
