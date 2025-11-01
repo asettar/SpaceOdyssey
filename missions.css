@@ -78,7 +78,7 @@
     z-index: 10000;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(20px);
     color: rgb(255, 255, 255);
     gap: 10vh;
@@ -120,4 +120,66 @@
     text-decoration: underline;
 }
 
+
+
+.mission-edit-section {
+    position: fixed;
+    top: 79px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    min-height: 200px;
+    border: 2px solid red;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    display: none;
+}
+
+.mission-edit-section h2{
+    text-align: center;
+    font-weight: 800;
+    font-size: 40px;
+} 
+
+
+.mission-edit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    margin: 0 auto;
+    width: clamp(300px, 50vw, 600px);
+    border: 2px solid black;
+    background-color: rgb(238, 236, 236);
+    border-radius: 15px;
+    padding: 3vw;
+}
+
+.mission-edit-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.mission-edit-form label {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mission-edit-form input,
+.mission-edit-form textarea
+{
+    border: none;
+    border-bottom: 1.5px solid black;
+    height: 4vh;
+    background-color: transparent;
+    padding: 0 10px;
+    border-radius: 5px;
+    /* font-size: 20px; */
+}
+
+.mission-edit-form input:focus {
+    border-radius: 8px;
+}
 

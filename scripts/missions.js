@@ -89,7 +89,7 @@ function    createNewMission(mission) {
     let newMissionElement = document.createElement('div');
     newMissionElement.classList.add('mission');
     newMissionElement.innerHTML = `
-    <div class="mission-card">
+    <div class="mission-card mission-card${mission.id}">
         <img src="${mission.picture}" alt="${mission.name}" >
         <p><b>${mission.name}</b>, launched by ${mission.agency} on ${mission.launchDate},
         ${mission.description}</p>
@@ -97,7 +97,7 @@ function    createNewMission(mission) {
     <div class = "add-del-fav"> 
         <img src="pictures/fav-empty.png" alt="" id = "fav-icon${mission.id}" onclick="toggleFavoriteIcon(${mission.id})">
         <img src="pictures/delete-icon (1).png" alt="" id = "del-icon${mission.id}">
-        <img src="pictures/edit-icon.png" alt="">
+        <img src="pictures/edit-icon.png" alt="" id = "edit-icon${mission.id}">
     </div>
     `
     missionGrid.appendChild(newMissionElement);
@@ -106,8 +106,26 @@ function    createNewMission(mission) {
     deleteBtn.addEventListener('click', () => {
         deleteMission(mission, newMissionElement);
     });
+
+    let editBtn = document.getElementById(`edit-icon${mission.id}`);
+    console.log(editBtn);
+    editBtn.addEventListener('click', () => {
+        editMission(mission);
+    });
 }
 
+
+function    editMission(missionData) {
+    console.log("from edit");
+    let missionEditForm = document.querySelector(".mission-edit-section");
+    let missionCard = document.querySelector(`.mission-card${missionData.id}`);
+    console.log(missionCard);
+    console.log(missionEditForm);
+    missionEditForm.style.display = 'block';
+    let inputs = document.querySelectorAll('input');
+    
+    // write missiondata into input values;
+}
 
 
 function    deleteMission(missionData, missionElement) {
