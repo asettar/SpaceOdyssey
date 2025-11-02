@@ -127,24 +127,32 @@
           <h2> Edit mission </h2>
           <form action="" class = "mission-edit-form">
             <div>
-              <label for="name"> name</label>
-              <input type="text" name="name">
+              <label for="name"> Name </label>
+              <input type="text" name="name" >
             </div>
             <div>
-              <label for="">objective</label>
+              <label for="name"> Agency </label>
+              <input type="text" name="agency">
+            </div>
+            <div>
+              <label for="">Objective</label>
               <input type="text" name="objective" id="">
             </div>
             <div>
               <label for="">Launch date</label>
-              <input type="text" name="Launch date" id="">
+              <input type="date"  name="launchDate" id="">
             </div>
             <div>
-              <label for="">picture url</label>
-              <input type="text" name="picture url" id="">
+              <label for=""> Picture url</label>
+              <input type="text" name="picture" id="">
             </div>
             <div>
-              <label for="">description</label>
-              <textarea name="description" id=""></textarea>
+              <label for="">Description</label>
+              <input name="description" id=""></textarea>
+            </div>
+            <div class = "edit-buttons">
+              <button id = "confirm-edit" type="submit">Confirm</button>
+              <button id = "cancel-edit">Cancel</button>
             </div>
           </form>
         </section>

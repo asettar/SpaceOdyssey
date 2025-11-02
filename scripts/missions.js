@@ -114,17 +114,53 @@ function    createNewMission(mission) {
     });
 }
 
+function  updateMissionCard(missionData) {
+	console.log("hello from update")
+	let missionCard = document.querySelector(`.mission-card${missionData.id}`);
+	console.log(missionCard);
+	let inputs = document.querySelectorAll('form input');
+	inputs.forEach((elem, index) => {
+		missionData[elem.name] = elem.value;
+	});
+	console.log(missionData);
+	console.log(missionCard.innerHTML);
+	missionCard.innerHTML = `
+    <div class="mission-card mission-card${missionData.id}">
+        <img src="${missionData.picture}" alt="${missionData.name}" >
+        <p><b>${missionData.name}</b>, launched by ${missionData.agency} on ${missionData.launchDate},
+        ${missionData.description}</p>
+    </div>`;
+	console.log(missionCard.innerHTML);
+}
+
+function  addEditMissionSubmitEvents(missionData) {
+    let missionEditForm = document.querySelector('.mission-edit-section');
+    let cancelBtn = document.getElementById('cancel-edit');  
+    let confirmBtn = document.getElementById('confirm-edit');
+	console.log(confirmBtn);
+	console.log(cancelBtn);
+    cancelBtn.addEventListener('click', (event) => {
+		event.preventDefault();
+      	missionEditForm.style.display = 'none';
+    });
+    confirmBtn.addEventListener('click', (event) => {
+		event.preventDefault();
+        updateMissionCard(missionData);
+        missionEditForm.style.display = 'none';
+    });
+}
 
 function    editMission(missionData) {
     console.log("from edit");
     let missionEditForm = document.querySelector(".mission-edit-section");
-    let missionCard = document.querySelector(`.mission-card${missionData.id}`);
-    console.log(missionCard);
-    console.log(missionEditForm);
     missionEditForm.style.display = 'block';
-    let inputs = document.querySelectorAll('input');
-    
+    let inputs = document.querySelectorAll('form input');
+    console.log(inputs);
     // write missiondata into input values;
+    inputs.forEach((elem, index) => {
+      inputs[index].value = missionData[inputs[index].name];
+    });
+    addEditMissionSubmitEvents(missionData);
 }
 
 
@@ -159,7 +195,7 @@ function toggleFavoriteIcon(missionId) {
 
 // main 
 for (let mission of missionsData) {
+	createNewMission(mission);
     console.log(typeof(mission), mission);
-    createNewMission(mission);
 }
 
