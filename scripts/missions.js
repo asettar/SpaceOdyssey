@@ -94,6 +94,7 @@ function missionAlreadyExist(missionId) {
 
 function    createNewMission(mission) {
 	creates++;
+	console.log("from creation: ", mission["id"]);
     let missionGrid = document.querySelector(".missions-grid");
     let newMissionElement = document.createElement('div');
     newMissionElement.classList.add('mission');
@@ -104,7 +105,7 @@ function    createNewMission(mission) {
         ${mission.description}</p>
     </div>
     <div class = "add-del-fav"> 
-        x<img src="pictures/fav-empty.png" alt="" id = "fav-icon${mission["id"]}" onclick="toggleFavoriteIcon(${mission["id"]})">
+        <img src="pictures/fav-empty.png" alt="" id = "fav-icon${mission["id"]}" onclick="toggleFavoriteIcon(${mission["id"]})">
         <img src="pictures/delete-icon (1).png" alt="" id = "del-icon${mission["id"]}">
         <img src="pictures/edit-icon.png" alt="" id = "edit-icon${mission["id"]}">
     </div>
@@ -181,31 +182,28 @@ function	addEditMissionSubmitEvents(missionData) {
 	errors.forEach((elem, index) => {
 		errors[index].innerHTML = "";
 	});
+	
+	cancelBtn.replaceWith(cancelBtn.cloneNode(true));
+	confirmBtn.replaceWith(confirmBtn.cloneNode(true));
+	cancelBtn = document.getElementById('cancel-edit');  
+    confirmBtn = document.getElementById('confirm-edit');
 
-	let cancelFunct = (event) => {
+	console.log(errors);
+    cancelBtn.addEventListener('click', (event) => {
 		console.log("cancel from=>", missionData["id"]);
 		event.preventDefault();
       	missionEditForm.style.display = 'none';
-	};
-
-	let confirmFunc = (event) => {
+	});
+	
+    confirmBtn.addEventListener('click', (event) => {
 		console.log("confirm from=>", missionData["id"]);
 		event.preventDefault();
 		if (isValidMissionForm() == true) {
 			updateMissionCard(missionData);
 			missionEditForm.style.display = 'none';
 		}
-	};
-
-	console.log(errors);
-    cancelBtn.addEventListener('click', (event) => cancelFunct(event));
-    confirmBtn.addEventListener('click', (event) => confirmFunc(event));
+	});
 	
-	console.log(cancelBtn);
-	console.log(confirmBtn);
-	
-	cancelBtn.removeEventListener('click', cancelFunct);
-	confirmBtn.removeEventListener('click', confirmFunc);
 	console.log(cancelBtn);
 	console.log(confirmBtn);
 }
@@ -240,7 +238,7 @@ function    deleteMission(missionData, missionElement) {
     console.log(cancelBtn);
     deletePopUp.style.display = 'flex';
     confirmBtn.addEventListener('click', () => {
-		missionsData = missionsData.filter((elem) => (elem["id"] == missionData["id"]));
+		missionsData = missionsData.filter((elem) => (elem["id"] !== missionData["id"]));
         missionElement.remove();
         deletePopUp.style.display = 'none';
     });
