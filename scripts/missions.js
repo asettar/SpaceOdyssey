@@ -1,4 +1,6 @@
 let favoritesMissions = {};
+let additions = 0, creates = 0;
+let lastId = 10;
 let missionsData = [
   {
     "id": 1,
@@ -83,46 +85,56 @@ let missionsData = [
   }
 ];
 
+function missionAlreadyExist(missionId) {
+	for (let o of missionsData) {
+		if (o["id"] == missionId) return 1;
+	}
+	return 0;
+}
 
 function    createNewMission(mission) {
+	creates++;
     let missionGrid = document.querySelector(".missions-grid");
     let newMissionElement = document.createElement('div');
     newMissionElement.classList.add('mission');
     newMissionElement.innerHTML = `
-    <div class="mission-card mission-card${mission.id}">
+    <div class="mission-card mission-card${mission["id"]}">
         <img src="${mission.picture}" alt="${mission.name}" >
         <p><b>${mission.name}</b>, launched by ${mission.agency} on ${mission.launchDate},
         ${mission.description}</p>
     </div>
     <div class = "add-del-fav"> 
-        <img src="pictures/fav-empty.png" alt="" id = "fav-icon${mission.id}" onclick="toggleFavoriteIcon(${mission.id})">
-        <img src="pictures/delete-icon (1).png" alt="" id = "del-icon${mission.id}">
-        <img src="pictures/edit-icon.png" alt="" id = "edit-icon${mission.id}">
+        x<img src="pictures/fav-empty.png" alt="" id = "fav-icon${mission["id"]}" onclick="toggleFavoriteIcon(${mission["id"]})">
+        <img src="pictures/delete-icon (1).png" alt="" id = "del-icon${mission["id"]}">
+        <img src="pictures/edit-icon.png" alt="" id = "edit-icon${mission["id"]}">
     </div>
-    `
+    `;
+	console.log("from creation: ", mission["id"]);
     missionGrid.appendChild(newMissionElement);
 
-    let deleteBtn = document.getElementById(`del-icon${mission.id}`);
+    let deleteBtn = document.getElementById(`del-icon${mission["id"]}`);
     deleteBtn.addEventListener('click', () => {
         deleteMission(mission, newMissionElement);
     });
 
-    let editBtn = document.getElementById(`edit-icon${mission.id}`);
+    let editBtn = document.getElementById(`edit-icon${mission["id"]}`);
     console.log(editBtn);
     editBtn.addEventListener('click', () => {
-        editMission(mission, 0);
+        editMission(mission);
     });
 }
 
-function  updateMissionCard(missionData, isNewMission) {
-	console.log("hello from update")
-	let missionCard = document.querySelector(`.mission-card${missionData.id}`);
+function  updateMissionCard(missionData) {
+	console.log("hello from update", missionData["id"])
+	console.log("is it found: ",missionAlreadyExist(missionData["id"]));
+	let missionCard = document.querySelector(`.mission-card${missionData["id"]}`);
 	console.log(missionCard);
 	let inputs = document.querySelectorAll('form input');
 	inputs.forEach((elem, index) => {
 		missionData[elem.name] = elem.value;
 	});
-	if (isNewMission) {
+
+	if (!missionAlreadyExist(missionData["id"])) {
 		createNewMission(missionData);
 		missionsData.push(missionData);
 		return ;
@@ -130,7 +142,7 @@ function  updateMissionCard(missionData, isNewMission) {
 	console.log(missionData);
 	console.log(missionCard.innerHTML);
 	missionCard.innerHTML = `
-    <div class="mission-card mission-card${missionData.id}">
+    <div class="mission-card mission-card${missionData["id"]}">
         <img src="${missionData.picture}" alt="${missionData.name}" >
         <p><b>${missionData.name}</b>, launched by ${missionData.agency} on ${missionData.launchDate},
         ${missionData.description}</p>
@@ -140,30 +152,67 @@ function  updateMissionCard(missionData, isNewMission) {
 
 
 function	isValidMissionForm() {
-    
+    let inputs = document.querySelectorAll('form input');
+	for (let input of inputs) {
+		let p = document.getElementById(`${input.name}-error`);
+		if (!input.value) {
+			p.innerHTML = "this feild is required";
+			input.style["border-bottom"] = '1px solid red';
+			input.focus();
+			return false;
+		}
+		else {
+			p.innerHTML = "";
+			input.style["border-bottom"] = '1px solid green';	
+		}
+	}
+	return true;
 }
 
-function  addEditMissionSubmitEvents(missionData, isNewMission) {
+function	addEditMissionSubmitEvents(missionData) {
+	console.log("Hello from addition of handlers", missionData["id"]);
+	console.log("is it found: ",missionAlreadyExist(missionData["id"]));
     let missionEditForm = document.querySelector('.mission-edit-section');
     let cancelBtn = document.getElementById('cancel-edit');  
     let confirmBtn = document.getElementById('confirm-edit');
 	console.log(confirmBtn);
-	console.log(cancelBtn);
-    cancelBtn.addEventListener('click', (event) => {
+	let errors = document.querySelectorAll('.mission-edit-form p');
+	console.log(cancelBtn, errors.length);
+	errors.forEach((elem, index) => {
+		errors[index].innerHTML = "";
+	});
+
+	let cancelFunct = (event) => {
+		console.log("cancel from=>", missionData["id"]);
 		event.preventDefault();
       	missionEditForm.style.display = 'none';
-    });
-    confirmBtn.addEventListener('click', (event) => {
+	};
+
+	let confirmFunc = (event) => {
+		console.log("confirm from=>", missionData["id"]);
 		event.preventDefault();
-		if (isValidMissionForm()) {
-			updateMissionCard(missionData, isNewMission);
+		if (isValidMissionForm() == true) {
+			updateMissionCard(missionData);
 			missionEditForm.style.display = 'none';
 		}
-    });
+	};
+
+	console.log(errors);
+    cancelBtn.addEventListener('click', (event) => cancelFunct(event));
+    confirmBtn.addEventListener('click', (event) => confirmFunc(event));
+	
+	console.log(cancelBtn);
+	console.log(confirmBtn);
+	
+	cancelBtn.removeEventListener('click', cancelFunct);
+	confirmBtn.removeEventListener('click', confirmFunc);
+	console.log(cancelBtn);
+	console.log(confirmBtn);
 }
 
-function    editMission(missionData, isNewMission) {
+function    editMission(missionData) {
     console.log("from edit");
+	console.log("is it found: ",missionAlreadyExist(missionData["id"]));
     let missionEditForm = document.querySelector(".mission-edit-section");
     missionEditForm.style.display = 'block';
     let inputs = document.querySelectorAll('form input');
@@ -171,13 +220,14 @@ function    editMission(missionData, isNewMission) {
 	// need to change name of header from edit to add if it's a new mission
 	console.log(missionEditForm.firstElementChild);
 	console.log(missionEditForm.firstElementChild);
-	if (isNewMission) missionEditForm.firstElementChild.innerHTML = "Add new mission";
+	if (!missionAlreadyExist(missionData["id"])) missionEditForm.firstElementChild.innerHTML = "Add new mission";
 	else missionEditForm.firstElementChild.innerHTML = "Edit mission";
     // write missiondata into input values;
-    inputs.forEach((elem, index) => {
-      inputs[index].value = missionData[inputs[index].name];
-    });
-    addEditMissionSubmitEvents(missionData, isNewMission);
+	inputs.forEach((elem, index) => {
+		  inputs[index].value = missionData[inputs[index].name];
+		  inputs[index].style['border-bottom'] = '1.5px solid black';   // reupdate border styles
+	});
+    addEditMissionSubmitEvents(missionData);
 }
 
 
@@ -190,7 +240,7 @@ function    deleteMission(missionData, missionElement) {
     console.log(cancelBtn);
     deletePopUp.style.display = 'flex';
     confirmBtn.addEventListener('click', () => {
-		missionsData = missionsData.filter((elem) => (elem.id == missionData.id));
+		missionsData = missionsData.filter((elem) => (elem["id"] == missionData["id"]));
         missionElement.remove();
         deletePopUp.style.display = 'none';
     });
@@ -212,18 +262,15 @@ function toggleFavoriteIcon(missionId) {
 }
 
 
-function	getNewId() {
-	const missionsCnt = missionsData.length;
-	if (!missionsCnt) return 1;
-	return (missionsData[missionsCnt - 1].id + 1);
-}
 
 function	addNewMission() {
-	let lastId = getNewId();
-	let newMissionData = {"id" : ++lastId,
+	lastId++;
+	console.log("last id ", lastId);
+	let newMissionData = {"id" : lastId,
 		"name": "","agency": "", "objective": "","launchDate": "",
 		"picture": "", "description": ""};
-	editMission(newMissionData, 1);
+	console.log("new mission id", newMissionData["id"]);
+	editMission(newMissionData);
 }
 
 // main 
