@@ -110,11 +110,11 @@ function    createNewMission(mission) {
     let editBtn = document.getElementById(`edit-icon${mission.id}`);
     console.log(editBtn);
     editBtn.addEventListener('click', () => {
-        editMission(mission);
+        editMission(mission, 0);
     });
 }
 
-function  updateMissionCard(missionData) {
+function  updateMissionCard(missionData, isNewMission) {
 	console.log("hello from update")
 	let missionCard = document.querySelector(`.mission-card${missionData.id}`);
 	console.log(missionCard);
@@ -122,6 +122,11 @@ function  updateMissionCard(missionData) {
 	inputs.forEach((elem, index) => {
 		missionData[elem.name] = elem.value;
 	});
+	if (isNewMission) {
+		createNewMission(missionData);
+		missionsData.push(missionData);
+		return ;
+	}
 	console.log(missionData);
 	console.log(missionCard.innerHTML);
 	missionCard.innerHTML = `
@@ -133,7 +138,12 @@ function  updateMissionCard(missionData) {
 	console.log(missionCard.innerHTML);
 }
 
-function  addEditMissionSubmitEvents(missionData) {
+
+function	isValidMissionForm() {
+    
+}
+
+function  addEditMissionSubmitEvents(missionData, isNewMission) {
     let missionEditForm = document.querySelector('.mission-edit-section');
     let cancelBtn = document.getElementById('cancel-edit');  
     let confirmBtn = document.getElementById('confirm-edit');
@@ -145,22 +155,29 @@ function  addEditMissionSubmitEvents(missionData) {
     });
     confirmBtn.addEventListener('click', (event) => {
 		event.preventDefault();
-        updateMissionCard(missionData);
-        missionEditForm.style.display = 'none';
+		if (isValidMissionForm()) {
+			updateMissionCard(missionData, isNewMission);
+			missionEditForm.style.display = 'none';
+		}
     });
 }
 
-function    editMission(missionData) {
+function    editMission(missionData, isNewMission) {
     console.log("from edit");
     let missionEditForm = document.querySelector(".mission-edit-section");
     missionEditForm.style.display = 'block';
     let inputs = document.querySelectorAll('form input');
     console.log(inputs);
+	// need to change name of header from edit to add if it's a new mission
+	console.log(missionEditForm.firstElementChild);
+	console.log(missionEditForm.firstElementChild);
+	if (isNewMission) missionEditForm.firstElementChild.innerHTML = "Add new mission";
+	else missionEditForm.firstElementChild.innerHTML = "Edit mission";
     // write missiondata into input values;
     inputs.forEach((elem, index) => {
       inputs[index].value = missionData[inputs[index].name];
     });
-    addEditMissionSubmitEvents(missionData);
+    addEditMissionSubmitEvents(missionData, isNewMission);
 }
 
 
@@ -173,6 +190,7 @@ function    deleteMission(missionData, missionElement) {
     console.log(cancelBtn);
     deletePopUp.style.display = 'flex';
     confirmBtn.addEventListener('click', () => {
+		missionsData = missionsData.filter((elem) => (elem.id == missionData.id));
         missionElement.remove();
         deletePopUp.style.display = 'none';
     });
@@ -191,6 +209,21 @@ function toggleFavoriteIcon(missionId) {
         favIcon.setAttribute('src', 'pictures/fav-empty.png');
         favoritesMissions[missionId] = 0;
     } 
+}
+
+
+function	getNewId() {
+	const missionsCnt = missionsData.length;
+	if (!missionsCnt) return 1;
+	return (missionsData[missionsCnt - 1].id + 1);
+}
+
+function	addNewMission() {
+	let lastId = getNewId();
+	let newMissionData = {"id" : ++lastId,
+		"name": "","agency": "", "objective": "","launchDate": "",
+		"picture": "", "description": ""};
+	editMission(newMissionData, 1);
 }
 
 // main 

@@ -1,8 +1,7 @@
 .missions-title {
     margin-left: 5%;
-    /* margin-top: 20px; */
     display: grid;
-    grid-template-columns: 5% 1fr;
+    grid-template-columns: 60px 1fr;
     align-items: center;
     font-weight: 600;
     font-size: 20px;
@@ -222,3 +221,21 @@
 #cancel-edit:hover {
     text-decoration: underline;
 }
+
+
+.missions-header {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+#add-mission-btn {
+    background-color: lightgreen;
+    font-size: clamp(17px, 2vw, 25px);
+    padding : 5px 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    /* border: none; */
+    border: 1px solid black;
+    transition: color 0.15s;
+} 
