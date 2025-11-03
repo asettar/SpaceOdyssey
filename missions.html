@@ -81,6 +81,7 @@
 
           </div>
           <button id = "add-mission-btn" onclick="addNewMission()"> Add mission <b>+</b></button>
+          <button id = "show-fav-btn" onclick="showFavorites()"> favorites </button>
         </div>
     
           <div class = "missions-grid">
@@ -169,6 +170,17 @@
               <button id = "cancel-edit">Cancel</button>
             </div>
           </form>
+        </section>
+        <section class = "favorites-section">
+          <h2> Favorites </h2>
+          <div class = "favorites-popup">
+            <img src="pictures/icons/close.png" id = "close-icon" 
+            onclick="closeFavoritePopup()">
+            <div class = "favorite-card">
+                <img src="pictures/apollo11.png" alt="">
+                <p><b>Apollo 11</b>, launched by NASA  on July 16, 1969, aimed to land the first humans on the Moon and return them safely to Earth.</p>
+            </div>
+          </div>
         </section>
     </main>
     

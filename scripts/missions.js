@@ -1,4 +1,5 @@
-let favoritesMissions = {};
+let favoritesMissions = new Set();
+let idToMission = new Map();   //=> for fast look up
 let additions = 0, creates = 0;
 let lastId = 10;
 let missionsData = [
@@ -112,7 +113,7 @@ function    createNewMission(mission) {
     `;
 	console.log("from creation: ", mission["id"]);
     missionGrid.appendChild(newMissionElement);
-
+	idToMission.set(mission["id"], mission);
     let deleteBtn = document.getElementById(`del-icon${mission["id"]}`);
     deleteBtn.addEventListener('click', () => {
         deleteMission(mission, newMissionElement);
@@ -240,6 +241,8 @@ function    deleteMission(missionData, missionElement) {
     confirmBtn.addEventListener('click', () => {
 		missionsData = missionsData.filter((elem) => (elem["id"] !== missionData["id"]));
         missionElement.remove();
+		if (favoritesMissions.has(missionData["id"]))
+				favoritesMissions.delete(missionData["id"]);
         deletePopUp.style.display = 'none';
     });
     cancelBtn.addEventListener('click', () => {
@@ -249,17 +252,56 @@ function    deleteMission(missionData, missionElement) {
 
 function toggleFavoriteIcon(missionId) {
     let favIcon = document.getElementById(`fav-icon${missionId}`);
-    if (!favoritesMissions[missionId]) {
+    if (!favoritesMissions.has(missionId)) {
         favIcon.setAttribute('src', 'pictures/fav-full.png')
-        favoritesMissions[missionId] = 1;
+        favoritesMissions.add(missionId);
     }
     else {
         favIcon.setAttribute('src', 'pictures/fav-empty.png');
-        favoritesMissions[missionId] = 0;
+        favoritesMissions.delete(missionId);
     } 
 }
 
+function	createNewFavoriteCard(id) {
+	let missionData = idToMission.get(id);
+	console.log("favorite id: ", id, missionData);
+	let newCard = document.createElement('div');
+	newCard.classList.add('favorite-card');
+	newCard.innerHTML = `
+		<img src="${missionData.picture}">
+    	<p>"${missionData.name}, launched by "${missionData.agency}"  on "${missionData.launchDate}",
+		it's objective is to "${missionData.objective}.</p>
+	`;
+	return newCard;
+}
 
+function	closeFavoritePopup() {
+	let	favoritesSection = document.querySelector('.favorites-section');
+	favoritesSection.style.display = 'none';
+	let	favoritesCards = document.querySelectorAll('.favorite-card');
+	favoritesCards.forEach((elem, index) => {
+		favoritesCards[index].remove();
+	}) 
+}
+
+function	showFavorites() {
+	console.log("favourites");
+	for (let id of favoritesMissions) {
+		console.log(id);
+		console.log(idToMission.get(id));
+	}
+
+	let	favoritesSection = document.querySelector('.favorites-section');
+	console.log(favoritesSection);
+	favoritesSection.style.display = 'block';
+
+	favoritesContainer = document.querySelector('.favorites-popup');
+	
+	for (let id of favoritesMissions) {
+		const newfFavoritecard = createNewFavoriteCard(id);
+		favoritesContainer.appendChild(newfFavoritecard);
+	}
+}
 
 function	addNewMission() {
 	lastId++;
