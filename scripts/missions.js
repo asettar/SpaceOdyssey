@@ -1,6 +1,6 @@
 let favoritesMissions = new Set();
 let idToMission = new Map();   //=> for fast look up
-let additions = 0, creates = 0;
+let elementToData = new Map(); //from html mission card element to mission data;
 let lastId = 10;
 let missionsData = [
   {
@@ -94,7 +94,6 @@ function missionAlreadyExist(missionId) {
 }
 
 function    createNewMission(mission) {
-	creates++;
 	console.log("from creation: ", mission["id"]);
     let missionGrid = document.querySelector(".missions-grid");
     let newMissionElement = document.createElement('div');
@@ -114,11 +113,12 @@ function    createNewMission(mission) {
 	console.log("from creation: ", mission["id"]);
     missionGrid.appendChild(newMissionElement);
 	idToMission.set(mission["id"], mission);
+    elementToData.set(newMissionElement, mission);
     let deleteBtn = document.getElementById(`del-icon${mission["id"]}`);
     deleteBtn.addEventListener('click', () => {
         deleteMission(mission, newMissionElement);
     });
-
+    
     let editBtn = document.getElementById(`edit-icon${mission["id"]}`);
     console.log(editBtn);
     editBtn.addEventListener('click', () => {
@@ -313,9 +313,72 @@ function	addNewMission() {
 	editMission(newMissionData);
 }
 
+
+function    agencyNotFound(wantedAgency, missionAgency) {
+    console.log(missionAgency);
+    let agencies = missionAgency.split('/');
+    agencies = agencies.filter((elem) => (elem === wantedAgency));
+    return (agencies.length == 0);
+}
+
+function    shouldBefiltered(missionElement) {
+    const missionData = elementToData.get(missionElement);
+
+    console.log("filter");
+    console.log(missionElement);
+    
+    console.log(missionData);
+    if (!missionData) return true;
+    let agencyFilter = document.getElementById("agency-filter");
+    let yearFilter = document.getElementById("year-filter");
+    let searchFilter = document.getElementById("search-filter");
+
+    if (agencyFilter.value !== "" && agencyNotFound(agencyFilter.value, missionData["agency"]))
+        return true;
+    // if (yearFilterx.value && ag)
+    return false;
+}
+
+function    filterMissions() {
+    let missionCards = document.querySelectorAll('.mission');
+    console.log(missionCards);
+    for (let missionElement of missionCards) {
+        console.log(missionElement);
+        if (shouldBefiltered(missionElement)) 
+            missionElement.style.display = 'none';
+        else missionElement.style.display = 'flex';
+    }
+}
+
 // main 
 for (let mission of missionsData) {
 	createNewMission(mission);
     console.log(typeof(mission), mission);
 }
 
+
+// for debugging 
+// for (let [key, val] of elementToData) {
+//     console.log(typeof(key));
+//     console.log(key);
+//     console.log(typeof(val), val);
+//     console.log("=========");
+// }
+
+// let missionCards = document.querySelectorAll('.mission');
+// console.log(missionCards);
+// for (let mission of missionCards) {
+//     console.log(mission);
+//     console.log(elementToData.has(mission));
+//     console.log(elementToData.get(mission));
+// }
+
+// let agencyFilter = document.getElementById('agency-filter');
+// console.log(agencyFilter, agencyFilter.value);
+// let yearFilter = document.getElementById('year-filter');
+// console.log(yearFilter);
+
+window.addEventListener('load', () => {
+    let agencyFilter = document.getElementById('agency-filter');
+    agencyFilter.value = "";
+});

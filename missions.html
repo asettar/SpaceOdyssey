@@ -82,8 +82,28 @@
           </div>
           <button id = "add-mission-btn" onclick="addNewMission()"> Add mission <b>+</b></button>
           <button id = "show-fav-btn" onclick="showFavorites()"> favorites </button>
+          
         </div>
-    
+        <div class = "filters">
+            <select id = "agency-filter" onchange="filterMissions()" onload="filterMissions()">
+              <option value="" selected>All agencies</option>
+              <option value="NASA">NASA</option>
+              <option value="ESA">ESA</option>
+            </select>
+            <select id = "year-filter" onchange="filterMissions()" onload="filterMissions()">
+              <option value="">All years</option>
+              <option value="1900">1900</option>
+              <option value="1950">1950</option>
+              <option value="2000">2000</option>
+              <option value="2010">2010</option>
+              <option value="2020">2020</option>
+            </select>
+            <div>
+              <input type="text" id = "search-filter" placeholder="Name/Agency/Year/Objective" value="" onclick="filterMissions()">
+              <img src="" alt="">
+            </div>
+          </div>
+
           <div class = "missions-grid">
             <div class="mission">
               <div class="mission-card">
