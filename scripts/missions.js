@@ -321,6 +321,16 @@ function    agencyNotFound(wantedAgency, missionAgency) {
     return (agencies.length == 0);
 }
 
+function    noMatchedData(value, missionData) {
+    value = value.trim();
+    if (value === missionData["name"] || value === missionData["objective"]
+        || value === missionData["agency"] || missionData["agency"].split('/').find((e) => e === value)
+        || value === missionData["launchDate"] || missionData["launchDate"].split('-').find((e) => e === value))
+        return false;
+
+    return true;
+}
+
 function    shouldBefiltered(missionElement) {
     const missionData = elementToData.get(missionElement);
 
@@ -334,9 +344,9 @@ function    shouldBefiltered(missionElement) {
     let searchFilter = document.getElementById("search-filter");
 
     if ((agencyFilter.value !== "" && agencyNotFound(agencyFilter.value, missionData["agency"]))
-        || (yearFilter.value !== "" && missionData["launchDate"].split('-')[0] !== yearFilter.value))
-            return true;
-    
+        || (yearFilter.value !== "" && missionData["launchDate"].split('-').find((e) => e == yearFilter.value) === undefined))
+        return true;
+    if (searchFilter.value && noMatchedData(searchFilter.value, missionData)) return true;
     return false;
 }
 
