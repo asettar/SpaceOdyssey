@@ -333,9 +333,10 @@ function    shouldBefiltered(missionElement) {
     let yearFilter = document.getElementById("year-filter");
     let searchFilter = document.getElementById("search-filter");
 
-    if (agencyFilter.value !== "" && agencyNotFound(agencyFilter.value, missionData["agency"]))
-        return true;
-    // if (yearFilterx.value && ag)
+    if ((agencyFilter.value !== "" && agencyNotFound(agencyFilter.value, missionData["agency"]))
+        || (yearFilter.value !== "" && missionData["launchDate"].split('-')[0] !== yearFilter.value))
+            return true;
+    
     return false;
 }
 
@@ -380,5 +381,8 @@ for (let mission of missionsData) {
 
 window.addEventListener('load', () => {
     let agencyFilter = document.getElementById('agency-filter');
+    let yearFilter = document.getElementById('year-filter');
     agencyFilter.value = "";
+    yearFilter.value = "";
+    filterMissions();
 });
