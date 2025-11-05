@@ -322,10 +322,10 @@ function    agencyNotFound(wantedAgency, missionAgency) {
 }
 
 function    noMatchedData(value, missionData) {
-    value = value.trim();
-    if (value === missionData["name"] || value === missionData["objective"]
-        || value === missionData["agency"] || missionData["agency"].split('/').find((e) => e === value)
-        || value === missionData["launchDate"] || missionData["launchDate"].split('-').find((e) => e === value))
+    value = value.trim().toLowerCase();
+    if (value === missionData["name"].toLowerCase() || value === missionData["objective"].toLowerCase()
+        || value === missionData["agency"].toLowerCase() || missionData["agency"].split('/').find((e) => e.toLowerCase() === value)
+        || value === missionData["launchDate"].toLowerCase() || missionData["launchDate"].split('-').find((e) => e.toLowerCase() === value))
         return false;
 
     return true;
