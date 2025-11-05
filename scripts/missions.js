@@ -126,6 +126,53 @@ function    createNewMission(mission) {
     });
 }
 
+
+// dynamic filters
+
+
+function    checkNewAgencyFilter(missionData) {
+    let agencyFilter = document.getElementById('agency-filter');
+    let curMissionAgencies = missionData["agency"].split('/').map((elem) => elem.toUpperCase());
+    let existedAgencies = [];
+    agencyFilter.querySelectorAll('option').forEach((elem) => {
+        existedAgencies.push(elem.value);
+    });
+
+    for (let agency of curMissionAgencies) {
+        // check if found
+        if (existedAgencies.includes(agency)) continue;
+        // add it to filters
+        let newAgency = document.createElement('option');
+        newAgency.innerHTML = agency;
+        newAgency.value = agency;
+        agencyFilter.appendChild(newAgency);
+    }
+}
+
+function    checkNewYearFilter(missionData) {
+    // let yearFilter = document.getElementById('year-filter');
+    // let agencyFound = 0;
+    // agencyFilter.querySelectorAll('option').forEach((elem) => {
+    //     if (elem.value.toLocaleLowerCase() == missionData["name"].toLocaleLowerCase()) {
+    //         agencyFound = 1;
+    //     } 
+    // });
+
+    // if (!agencyFound) {
+    //     // add it to filters
+    //     let newAgency = document.createElement('option');
+    //     newAgency.innerHTML = missionData["agency"];
+    //     newAgency.value = missionData["agency"];
+    //     yearFilter.appendChild(newAgency);
+    // }
+}
+
+function    checkNewFilterData(missionData) {
+    
+    checkNewAgencyFilter(missionData);
+    checkNewYearFilter(missionData);
+}
+
 function  updateMissionCard(missionData) {
 	console.log("hello from update", missionData["id"])
 	console.log("is it found: ",missionAlreadyExist(missionData["id"]));
@@ -135,7 +182,7 @@ function  updateMissionCard(missionData) {
 	inputs.forEach((elem, index) => {
 		missionData[elem.name] = elem.value;
 	});
-
+    checkNewFilterData(missionData);
 	if (!missionAlreadyExist(missionData["id"])) {
 		createNewMission(missionData);
 		missionsData.push(missionData);
@@ -144,11 +191,10 @@ function  updateMissionCard(missionData) {
 	console.log(missionData);
 	console.log(missionCard.innerHTML);
 	missionCard.innerHTML = `
-    <div class="mission-card mission-card${missionData["id"]}">
         <img src="${missionData.picture}" alt="${missionData.name}" >
         <p><b>${missionData.name}</b>, launched by ${missionData.agency} on ${missionData.launchDate},
         ${missionData.description}</p>
-    </div>`;
+    `;
 	console.log(missionCard.innerHTML);
 }
 
@@ -317,7 +363,8 @@ function	addNewMission() {
 function    agencyNotFound(wantedAgency, missionAgency) {
     console.log(missionAgency);
     let agencies = missionAgency.split('/');
-    agencies = agencies.filter((elem) => (elem === wantedAgency));
+    agencies = agencies.filter((elem) => (elem.toLowerCase() === wantedAgency.toLowerCase()));
+
     return (agencies.length == 0);
 }
 
