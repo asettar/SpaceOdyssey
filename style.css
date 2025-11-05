@@ -78,6 +78,7 @@ body {
 .nav-bar {
     display: flex;
     margin-left: 8%;
+    margin-top: 15px; 
     width: 500px;
 }
 .nav-bar-links,

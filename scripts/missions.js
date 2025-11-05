@@ -150,21 +150,18 @@ function    checkNewAgencyFilter(missionData) {
 }
 
 function    checkNewYearFilter(missionData) {
-    // let yearFilter = document.getElementById('year-filter');
-    // let agencyFound = 0;
-    // agencyFilter.querySelectorAll('option').forEach((elem) => {
-    //     if (elem.value.toLocaleLowerCase() == missionData["name"].toLocaleLowerCase()) {
-    //         agencyFound = 1;
-    //     } 
-    // });
+    let yearFilter = document.getElementById('year-filter');
+    let curYear = missionData["launchDate"].split('-')[0];
+    let existedYears = [];
+    yearFilter.querySelectorAll('option').forEach((elem) => {
+        existedYears.push(elem.value);
+    });
 
-    // if (!agencyFound) {
-    //     // add it to filters
-    //     let newAgency = document.createElement('option');
-    //     newAgency.innerHTML = missionData["agency"];
-    //     newAgency.value = missionData["agency"];
-    //     yearFilter.appendChild(newAgency);
-    // }
+    if (existedYears.includes(curYear)) return;
+    let newYear = document.createElement('option');
+    newYear.innerHTML = curYear;
+    newYear.value = curYear;
+    yearFilter.appendChild(newYear);
 }
 
 function    checkNewFilterData(missionData) {
