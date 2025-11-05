@@ -102,22 +102,22 @@
             <div class = "form1">
               <div>
                 <label for = "firstname"> First name </label>
-                <input type = "text" id = "firstname" value = "" required onkeydown="checkFeild(event, id)">
+                <input type = "text" id = "firstname" value = "" required oninput="checkFeild(event, id)">
                 <p class = "firstname-errormsg"></p>
               </div>
               <div>
                 <label for = "secondname"> Last name </label>
-                <input type = "text" id = "secondname" value = "" required onkeydown="checkFeild(event, id)">
+                <input type = "text" id = "secondname" value = "" required oninput="checkFeild(event, id)">
                 <p class = "secondname-errormsg"></p>
               </div>
               <div>
                 <label for = "mail"> Email </label>
-                <input type = "text" id = "mail" value = "" required onkeydown="checkFeild(event, id)">
+                <input type = "text" id = "mail" value = "" required oninput="checkFeild(event, id)">
                 <p class = "mail-errormsg"></p>
               </div>
               <div>
                 <label for="phonenum"> phone number </label required>
-                <input type = "text" id = "phonenum" value = "" required onkeydown="checkFeild(event, id)">
+                <input type = "text" id = "phonenum" value = "" required oninput="checkFeild(event, id)">
                 <p class = "phonenum-errormsg"></p>
               </div>
             </div>
@@ -154,7 +154,7 @@
             <div class = "form-msg">
               <p>Message </p>
               <label style="display: block;">write your Message</label>
-              <textarea name="" id="message" required onkeydown="checkMessage(event, id)"></textarea>
+              <textarea name="" id="message" required oninput="checkMessage(event, id)"></textarea>
               <p class = "msg-errormsg"></p>
             </div>
             <button class = "form-btn" type="submit" required onclick="validateForm(event)">Send Message</input>

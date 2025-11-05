@@ -1,6 +1,6 @@
 function checkFeild(event, inputId) {
     console.log(event.key);
-    if (event.key !== 'Enter' && event.key !== 'Tab') return;
+    // if (event.key !== 'Enter' && event.key !== 'Tab') return;
     if (inputId === 'firstname' || inputId == 'secondname') checkName(event, inputId);
     else if (inputId == 'mail') checkMail(event, inputId);
     else if (inputId == "phonenum") checkPhoneNumber(event, inputId);
